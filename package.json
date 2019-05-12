@@ -3,9 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
+    "cldr-data": "^34.0.0",
+    "firebase": "^6.0.1",
+    "globalize": "^1.4.2",
+    "iana-tz-data": "^2018.5.0",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-big-calendar": "^0.20.4",
+    "react-csv": "^1.1.1",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "2.1.8",
+    "react-table": "^6.9.2",
+    "react-toastify": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
