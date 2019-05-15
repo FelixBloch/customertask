@@ -10,7 +10,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 class AddTraining extends Component {
     constructor(props){
         super(props);
-        this.state = {open: false, date: new Date(), duration: '', activity: ''}
+        this.state = {open: false, date: new Date(), duration: '', activity: '', customer: ''}
     };
 
     handleClickOpen = () => {
@@ -30,7 +30,7 @@ class AddTraining extends Component {
             date: this.state.date,
             duration: this.state.duration,
             activity: this.state.activity,
-            customer: this.props.customer
+            customer: "https://customerrest.herokuapp.com/api/customers/" + this.state.customer
         }
         this.props.saveTraining(newTraining);
         this.handleClose();
@@ -45,6 +45,7 @@ class AddTraining extends Component {
                         <TextField onChange={this.handleChange} type="date" autoFocus margin="dense" name="date" label="Date" fullWidth />
                         <TextField onChange={this.handleChange} autoFocus margin="dense" name="duration" label="Duration" fullWidth />
                         <TextField onChange={this.handleChange} autoFocus margin="dense" name="activity" label="Activity" fullWidth />
+                        <TextField onChange={this.handleChange} autoFocus margin="dense" name="customer" label="Customer" fullWidth />
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleClose} color="primary">Cancel</Button>

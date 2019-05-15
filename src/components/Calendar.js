@@ -58,6 +58,7 @@ class calendar extends Component {
                     startAccessor="start"
                     endAccessor="end"
                     views={["month", "week", "day"]}
+                    style={{height: 500, width: this.state.width}}
                 />
             </div>
         );

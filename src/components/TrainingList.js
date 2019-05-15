@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import * as moment from 'moment';
+import AddTraining from './AddTraining';
 import Button from '@material-ui/core/Button';
 
 class TrainingList extends Component {
@@ -101,6 +102,7 @@ class TrainingList extends Component {
 
         return (
             <div>
+                <AddTraining saveTraining={this.saveTraining} />
                 <ReactTable data={this.state.trainings} columns={columns} filterable={true} />
             </div>
         );
