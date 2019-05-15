@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import BigCalendar from 'react-big-calendar'
-import moment from 'moment'
-import TrainingList from './TrainingList';
-
-const localizer = BigCalendar.momentLocalizer(moment)
+import BigCalendar from 'react-big-calendar';
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import moment from 'moment';
 
 class calendar extends Component {
     constructor(props){
@@ -47,6 +45,8 @@ class calendar extends Component {
     }
 
     render() {
+        const localizer = BigCalendar.momentLocalizer(moment);
+
         return (
             <div>
                 <BigCalendar

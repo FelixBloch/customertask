@@ -45,7 +45,7 @@ class AddTraining extends Component {
                         <TextField onChange={this.handleChange} type="date" autoFocus margin="dense" name="date" label="Date" fullWidth />
                         <TextField onChange={this.handleChange} autoFocus margin="dense" name="duration" label="Duration" fullWidth />
                         <TextField onChange={this.handleChange} autoFocus margin="dense" name="activity" label="Activity" fullWidth />
-                        <TextField onChange={this.handleChange} autoFocus margin="dense" name="custId" label="Customer ID" fullWidth />
+                        <TextField onChange={this.handleChange} autoFocus margin="dense" name="customer" label="Customer" fullWidth />
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleClose} color="primary">Cancel</Button>

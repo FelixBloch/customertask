@@ -3,7 +3,6 @@ import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import * as moment from 'moment';
 import AddTraining from './AddTraining';
-import EditTraining from './EditTraining';
 import Button from '@material-ui/core/Button';
 
 class TrainingList extends Component {
