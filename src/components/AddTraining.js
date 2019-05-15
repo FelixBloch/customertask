@@ -10,7 +10,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 class AddTraining extends Component {
     constructor(props){
         super(props);
-        this.state = {open: false, date: '', duration: '', activity: '', custId: ''}
+        this.state = {open: false, date: new Date(), duration: '', activity: '', customer: ''}
     };
 
     handleClickOpen = () => {
@@ -30,7 +30,7 @@ class AddTraining extends Component {
             date: this.state.date,
             duration: this.state.duration,
             activity: this.state.activity,
-            custId: this.state.custId
+            customer: this.props.customer
         }
         this.props.saveTraining(newTraining);
         this.handleClose();
