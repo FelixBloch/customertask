@@ -17,7 +17,7 @@ class calendar extends Component {
         fetch('https://customerrest.herokuapp.com/gettrainings')
         .then(response => response.json())
         .then(jsondata => {
-            this.setState({trainings: jsondata})
+            this.setState({trainings: jsondata});
             this.newEvents()
         })
         .catch(err => console.error(err));

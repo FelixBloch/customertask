@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import AddCustomer from './AddCustomer';
+import AddTraining from './AddTraining';
 import EditCustomer from './EditCustomer';
 import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
 
 class CustomerList extends Component {
     constructor(props){
         super(props);
-        this.state = {customers: []}
+        this.state = {customers: [], open: false, message: ''}
     }
     
     componentDidMount(){
@@ -33,6 +35,18 @@ class CustomerList extends Component {
         })
         .then(res => this.loadCustomers())
         .then(res => this.setState({open: true, message: 'New customer added'}))
+        .catch(err => console.error(err));
+    }
+
+    saveTraining = (training) => {
+        fetch('https://customerrest.herokuapp.com/api/trainings', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(training)
+        })
+        .then(res => this.setState({open: true, message: 'New training added'}))
         .catch(err => console.error(err));
     }
 
@@ -88,6 +102,15 @@ class CustomerList extends Component {
                 width: 100,
                 accessor: "links[0].href",
                 Cell: ({value, row}) => (
+                    <AddTraining customer={value} savsaveTraining={this.saveTraining} />
+                )
+            },{
+                Header: "",
+                filterable: false,
+                sortable: false,
+                width: 100,
+                accessor: "links[0].href",
+                Cell: ({value, row}) => (
                     <EditCustomer updateCustomer={this.updateCustomer} link={value} customer={row} />
                 )
             },{
@@ -105,6 +128,16 @@ class CustomerList extends Component {
             <div>
                 <AddCustomer saveCustomer={this.saveCustomer} />
                 <ReactTable data={this.state.customers} columns={columns} filterable={true} />
+                <Snackbar
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                    }}
+                    open={this.state.open}
+                    autoHideDuration={3000}
+                    onClose={this.handleClose}
+                    message={this.state.message}
+                />
             </div>
         );
     }
