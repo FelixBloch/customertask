@@ -30,7 +30,7 @@ class AddTraining extends Component {
             date: this.state.date,
             duration: this.state.duration,
             activity: this.state.activity,
-            customer: this.props.customer
+            customer: "https://customerrest.herokuapp.com/api/customers/" + this.state.customer
         }
         this.props.saveTraining(newTraining);
         this.handleClose();

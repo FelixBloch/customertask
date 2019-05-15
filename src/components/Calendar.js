@@ -16,13 +16,16 @@ class calendar extends Component {
     getTrainings = () => {
         fetch('https://customerrest.herokuapp.com/gettrainings')
         .then(response => response.json())
-        .then(jsondata => this.setState({trainings: jsondata}))
+        .then(jsondata => {
+            this.setState({trainings: jsondata})
+            this.newEvents()
+        })
         .catch(err => console.error(err));
-        this.newEvents();
     }
 
     newEvents = () => {
         var trainings = this.state.trainings;
+        trainings = Object.values(trainings);
         var events = [];
         var starting;
         var ending;
